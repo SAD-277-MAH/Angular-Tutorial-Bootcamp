@@ -1,0 +1,8 @@
+<app-card
+  *ngFor="let post of posts"
+  [title]="post.title"
+  [imageUrl]="post.imageUrl"
+  [username]="post.username"
+  [content]="post.content"
+  class="p-5"
+></app-card>
