@@ -1,0 +1,24 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center mt-5">
+    <li class="page-item" [ngClass]="{disabled: currentPage === 0}">
+      <a class="page-link" href="#" (click)="currentPage = currentPage - 1;">Previous</a>
+    </li>
+
+    <ng-container *ngFor="let image of images; index as i;">
+      <li class="page-item" [ngClass]="{active: i === currentPage}" *ngIf="checkIndex(i);">
+        <a class="page-link" href="#" (click)="currentPage = i;">{{ i + 1 }}</a>
+      </li>
+    </ng-container>
+
+    <li class="page-item" [ngClass]="{disabled: currentPage === images.length - 1}">
+      <a class="page-link" href="#" (click)="currentPage = currentPage + 1;">Next</a>
+    </li>
+  </ul>
+</nav>
+
+<div [appClass]="{'text-center': true}">
+  <h4 [appMyDirective]="'gray'" *appTimes="3;index as i;">
+    {{images[currentPage].title}} - {{ i }}
+  </h4>
+  <img [src]="images[currentPage].url" [alt]="images[currentPage].title">
+</div>
