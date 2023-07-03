@@ -1,0 +1,13 @@
+<div class="ui styled accordion">
+    <ng-container *ngFor="let item of items; index as i;">
+        <div class="title" [ngClass]="{'active': i === currentIndex}" (click)="onClick(i)">
+            <i class="dropdown icon"></i>
+            {{ item.title }}
+        </div>
+        <div class="content" [ngClass]="{'active': i === currentIndex}">
+            <p class="transition" [ngClass]="i === currentIndex ? 'visible' : 'hidden'">
+                {{ item.content }}
+            </p>
+        </div>
+    </ng-container>
+</div>
