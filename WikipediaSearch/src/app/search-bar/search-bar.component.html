@@ -1,0 +1,9 @@
+<div class="box">
+  <form (submit)="onFormSubmit($event)">
+    <input
+      (input)="query = getValue($event)"
+      placeholder="Search..."
+      class="input"
+    />
+  </form>
+</div>
