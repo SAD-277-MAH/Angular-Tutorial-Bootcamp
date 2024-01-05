@@ -1,0 +1,68 @@
+<div class="columns">
+  <div class="column">
+    <app-card
+      [name]="cardForm.controls.name.value"
+      [cardNumber]="cardForm.controls.cardNumber.value"
+      [expiration]="cardForm.controls.expiration.value"
+    ></app-card>
+  </div>
+  <div class="column">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input
+        [control]="cardForm.controls.name"
+        [label]="'Name'"
+      ></app-input>
+      <app-input
+        [control]="cardForm.controls.cardNumber"
+        [label]="'Card Number'"
+        [mask]="'0000-0000-0000-0000'"
+        [showMaskTyped]="true"
+        [specialCharacters]="['-']"
+        [shownMaskExpression]="'____-____-____-____'"
+        [dropSpecialCharacters]="true"
+      ></app-input>
+      <div class="columns">
+        <div class="column">
+          <app-input
+            [control]="cardForm.controls.expiration"
+            [label]="'Expiration (MM/YY)'"
+            [mask]="'M0/00'"
+            [leadZeroDateTime]="true"
+            [showMaskTyped]="true"
+            [specialCharacters]="['/']"
+            [dropSpecialCharacters]="false"
+          ></app-input>
+        </div>
+        <div class="column">
+          <app-input
+            [control]="cardForm.controls.cvv2"
+            [label]="'CVV2'"
+            [mask]="'0009'"
+          ></app-input>
+        </div>
+      </div>
+      <div class="buttons">
+        <button
+          [disabled]="!cardForm.valid"
+          type="submit"
+          class="button is-primary"
+        >
+          Submit
+        </button>
+        <button type="button" class="button is-warning" (click)="onReset()">
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr />
+
+<div>Form Content: {{ cardForm.value | json }}</div>
+<div>Form Validation: {{ cardForm.valid }}</div>
+
+<div>Errors around name: {{ cardForm.controls.name.errors | json }}</div>
+<div>Errors around name: {{ cardForm.controls.cardNumber.errors | json }}</div>
+<div>Errors around name: {{ cardForm.controls.expiration.errors | json }}</div>
+<div>Errors around name: {{ cardForm.controls.cvv2.errors | json }}</div>
