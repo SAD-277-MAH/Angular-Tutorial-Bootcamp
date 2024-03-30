@@ -1,0 +1,37 @@
+<h3>Sign In</h3>
+
+<form
+  [formGroup]="authForm"
+  class="ui form"
+  [ngClass]="{ loading: (isLoading$ | async) }"
+  (ngSubmit)="onSubmit()"
+>
+  <app-input
+    label="Username"
+    [control]="authForm.controls.username"
+    inputType="text"
+  ></app-input>
+  <app-input
+    label="Password"
+    [control]="authForm.controls.password"
+    inputType="password"
+  ></app-input>
+
+  <div *ngIf="authForm.errors" class="ui red basic label">
+    <p *ngIf="authForm.errors!['signinFailed']">
+      Signin failed! Username or Password is Wrong
+    </p>
+    <p *ngIf="authForm.errors!['noConnection']">
+      Signin failed! No internet connection
+    </p>
+    <p *ngIf="authForm.errors!['unhandledException']">
+      Signin failed! Unhandled exception happened
+    </p>
+  </div>
+
+  <div>
+    <button class="ui submit button primary" [disabled]="disabledSubmit()">
+      Submit
+    </button>
+  </div>
+</form>

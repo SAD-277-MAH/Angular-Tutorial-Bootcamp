@@ -1,0 +1,44 @@
+<h3>Sign Up</h3>
+
+<form
+  [formGroup]="authForm"
+  class="ui form"
+  [ngClass]="{
+    loading: authForm.controls.username.pending || (isLoading$ | async)
+  }"
+  (ngSubmit)="onSubmit()"
+>
+  <app-input
+    label="Username"
+    [control]="authForm.controls.username"
+    inputType="text"
+  ></app-input>
+  <app-input
+    label="Password"
+    [control]="authForm.controls.password"
+    inputType="password"
+  ></app-input>
+  <app-input
+    label="Password Confirmation"
+    [control]="authForm.controls.passwordConfirmation"
+    inputType="password"
+  ></app-input>
+
+  <div *ngIf="showErrors()" class="ui red basic label">
+    <p *ngIf="authForm.errors!['passwordMismatch']">
+      Password and Password Confirmation must match
+    </p>
+    <p *ngIf="authForm.errors!['noConnection']">
+      Signup failed! No internet connection
+    </p>
+    <p *ngIf="authForm.errors!['unhandledException']">
+      Signup failed! Unhandled exception happened
+    </p>
+  </div>
+
+  <div>
+    <button class="ui submit button primary" [disabled]="disabledSubmit()">
+      Submit
+    </button>
+  </div>
+</form>

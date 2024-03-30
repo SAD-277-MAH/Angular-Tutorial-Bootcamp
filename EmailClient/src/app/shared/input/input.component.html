@@ -1,0 +1,46 @@
+<div class="field" [ngClass]="{ error: showErrors() }">
+  <label>{{ label }}</label>
+
+  <input
+    *ngIf="controlType === 'input'"
+    [type]="inputType"
+    [formControl]="control"
+  />
+
+  <textarea
+    *ngIf="controlType === 'textarea'"
+    [formControl]="control"
+  ></textarea>
+
+  <div *ngIf="showErrors()" class="ui pointing red basic label">
+    <p *ngIf="control.errors!['required']">Value is required</p>
+    <p *ngIf="control.errors!['email']">Invalid email address</p>
+    <p *ngIf="control.errors!['pattern']">Invalid format</p>
+    <p *ngIf="control.errors!['minlength']">
+      Minimum length should be
+      {{ control.errors!["minlength"].requiredLength }} characters. you entered
+      {{ control.errors!["minlength"].actualLength }} characters.
+    </p>
+    <p *ngIf="control.errors!['maxlength']">
+      Maximum length should be
+      {{ control.errors!["maxlength"].requiredLength }} characters. you entered
+      {{ control.errors!["maxlength"].actualLength }} characters.
+    </p>
+    <p *ngIf="control.errors!['min']">
+      Minimum value should be
+      {{ control.errors!["min"].min }}. current value is
+      {{ control.errors!["min"].actual }}
+    </p>
+    <p *ngIf="control.errors!['max']">
+      Maximum value should be
+      {{ control.errors!["max"].max }}. current value is
+      {{ control.errors!["max"].actual }}
+    </p>
+    <p *ngIf="control.errors!['usernameNotAvailable']">
+      Username is not available
+    </p>
+    <p *ngIf="control.errors!['unhandledException']">
+      Unhandled exception happened
+    </p>
+  </div>
+</div>

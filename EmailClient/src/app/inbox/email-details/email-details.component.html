@@ -1,0 +1,18 @@
+<ng-container *ngIf="email$ | async; let email">
+  <div class="header">
+    <div>
+      <h3>{{ email.message.subject }}</h3>
+      <div>
+        From: <i>{{ email.message.from }}</i>
+      </div>
+      <div>
+        To: <i>{{ email.message.to }}</i>
+      </div>
+    </div>
+    <div>
+      <app-email-reply [email]="email.message"></app-email-reply>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+  <div [innerHTML]="email.message.html"></div>
+</ng-container>

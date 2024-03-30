@@ -1,0 +1,16 @@
+<button class="ui button inverted primary fluid" (click)="showModal = true">
+  Compose
+</button>
+
+<app-modal *ngIf="showModal" (dismiss)="showModal = false">
+  <ng-container modalHeader>
+    <div>Compose</div>
+  </ng-container>
+  <ng-container modalContent>
+    <app-email-form
+      [email]="email"
+      (formSubmit)="onSubmit($event)"
+    ></app-email-form>
+  </ng-container>
+  <ng-container modalFooter></ng-container>
+</app-modal>
