@@ -4,9 +4,10 @@ import { AuthService } from '../../auth/auth.service';
 import { EmailService } from '../email.service';
 
 @Component({
-  selector: 'app-email-reply',
-  templateUrl: './email-reply.component.html',
-  styleUrl: './email-reply.component.css',
+    selector: 'app-email-reply',
+    templateUrl: './email-reply.component.html',
+    styleUrl: './email-reply.component.css',
+    standalone: false
 })
 export class EmailReplyComponent implements OnChanges {
   @Input() email: Email = {

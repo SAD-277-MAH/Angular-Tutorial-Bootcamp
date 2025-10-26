@@ -4,9 +4,10 @@ import { AuthService } from '../../auth/auth.service';
 import { EmailService } from '../email.service';
 
 @Component({
-  selector: 'app-email-create',
-  templateUrl: './email-create.component.html',
-  styleUrl: './email-create.component.css',
+    selector: 'app-email-create',
+    templateUrl: './email-create.component.html',
+    styleUrl: './email-create.component.css',
+    standalone: false
 })
 export class EmailCreateComponent {
   showModal: Boolean = false;

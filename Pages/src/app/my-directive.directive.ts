@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appMyDirective]'
+    selector: '[appMyDirective]',
+    standalone: false
 })
 export class MyDirectiveDirective {
 

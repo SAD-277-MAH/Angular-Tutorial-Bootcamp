@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { PhotoResponse, PhotoService } from '../photo.service';
 
 @Component({
-  selector: 'app-photo',
-  templateUrl: './photo.component.html',
-  styleUrl: './photo.component.css',
+    selector: 'app-photo',
+    templateUrl: './photo.component.html',
+    styleUrl: './photo.component.css',
+    standalone: false
 })
 export class PhotoComponent {
   randomPhoto: PhotoResponse = {

@@ -1,7 +1,8 @@
 import { Directive, Input, ViewContainerRef, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[appTimes]',
+    selector: '[appTimes]',
+    standalone: false
 })
 export class TimesDirective {
   @Input('appTimes') set render(time: number) {

@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+    selector: 'app-modal',
+    templateUrl: './modal.component.html',
+    styleUrls: ['./modal.component.css'],
+    standalone: false
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Output() close = new EventEmitter();

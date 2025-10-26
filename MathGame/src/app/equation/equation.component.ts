@@ -4,9 +4,10 @@ import { MathValidators } from '../math-validators';
 import { Subscription, delay, filter, scan, tap } from 'rxjs';
 
 @Component({
-  selector: 'app-equation',
-  templateUrl: './equation.component.html',
-  styleUrl: './equation.component.css',
+    selector: 'app-equation',
+    templateUrl: './equation.component.html',
+    styleUrl: './equation.component.css',
+    standalone: false
 })
 export class EquationComponent implements OnInit, OnDestroy {
   subManager = new Subscription();

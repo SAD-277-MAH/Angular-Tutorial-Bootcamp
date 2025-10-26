@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrl: './search-bar.component.css',
+    selector: 'app-search-bar',
+    templateUrl: './search-bar.component.html',
+    styleUrl: './search-bar.component.css',
+    standalone: false
 })
 export class SearchBarComponent {
   @Output() search = new EventEmitter<string>();

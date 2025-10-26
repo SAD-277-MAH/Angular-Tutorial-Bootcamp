@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appClass]',
+    selector: '[appClass]',
+    standalone: false
 })
 export class ClassDirective {
   @Input('appClass') set classNames(classObject: any) {

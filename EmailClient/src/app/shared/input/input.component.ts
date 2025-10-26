@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.css',
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    styleUrl: './input.component.css',
+    standalone: false
 })
 export class InputComponent {
   @Input() label: string = '';

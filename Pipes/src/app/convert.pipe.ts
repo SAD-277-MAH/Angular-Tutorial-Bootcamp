@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'convert',
+    name: 'convert',
+    standalone: false
 })
 export class ConvertPipe implements PipeTransform {
   transform(value: any, targetUnit: string): any {

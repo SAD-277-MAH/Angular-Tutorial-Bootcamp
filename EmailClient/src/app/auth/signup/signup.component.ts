@@ -7,9 +7,10 @@ import { MatchPassword } from '../validators/match-password';
 import { UsernameAvailable } from '../validators/username-available';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css',
+    selector: 'app-signup',
+    templateUrl: './signup.component.html',
+    styleUrl: './signup.component.css',
+    standalone: false
 })
 export class SignupComponent implements OnDestroy {
   subManager = new Subscription();

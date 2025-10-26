@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-card-form',
-  templateUrl: './card-form.component.html',
-  styleUrl: './card-form.component.css',
+    selector: 'app-card-form',
+    templateUrl: './card-form.component.html',
+    styleUrl: './card-form.component.css',
+    standalone: false
 })
 export class CardFormComponent {
   cardForm = new FormGroup({

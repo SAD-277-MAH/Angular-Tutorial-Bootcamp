@@ -4,9 +4,10 @@ import { Observable, Subscription, map } from 'rxjs';
 import { GetEmailResult } from '../email.service';
 
 @Component({
-  selector: 'app-email-details',
-  templateUrl: './email-details.component.html',
-  styleUrl: './email-details.component.css',
+    selector: 'app-email-details',
+    templateUrl: './email-details.component.html',
+    styleUrl: './email-details.component.css',
+    standalone: false
 })
 export class EmailDetailsComponent implements OnDestroy {
   subManager = new Subscription();

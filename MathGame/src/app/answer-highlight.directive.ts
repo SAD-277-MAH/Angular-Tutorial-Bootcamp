@@ -9,7 +9,8 @@ import { NgControl } from '@angular/forms';
 import { Subscription, map } from 'rxjs';
 
 @Directive({
-  selector: '[appAnswerHighlight]',
+    selector: '[appAnswerHighlight]',
+    standalone: false
 })
 export class AnswerHighlightDirective implements OnInit, OnDestroy {
   subManager = new Subscription();
