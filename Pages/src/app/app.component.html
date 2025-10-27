@@ -4,11 +4,13 @@
       <a class="page-link" href="#" (click)="currentPage = currentPage - 1;">Previous</a>
     </li>
 
-    <ng-container *ngFor="let image of images; index as i;">
-      <li class="page-item" [ngClass]="{active: i === currentPage}" *ngIf="checkIndex(i);">
-        <a class="page-link" href="#" (click)="currentPage = i;">{{ i + 1 }}</a>
-      </li>
-    </ng-container>
+    @for (image of images; track image; let i = $index) {
+      @if (checkIndex(i);) {
+        <li class="page-item" [ngClass]="{active: i === currentPage}">
+          <a class="page-link" href="#" (click)="currentPage = i;">{{ i + 1 }}</a>
+        </li>
+      }
+    }
 
     <li class="page-item" [ngClass]="{disabled: currentPage === images.length - 1}">
       <a class="page-link" href="#" (click)="currentPage = currentPage + 1;">Next</a>

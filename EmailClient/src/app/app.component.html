@@ -3,28 +3,28 @@
     <a routerLink="/" class="item">Email Client</a>
 
     <div class="right menu">
-      <ng-container *ngIf="signedin$ | async">
+      @if (signedin$ | async) {
         <a routerLink="/inbox" routerLinkActive="active" class="ui item"
           >Inbox</a
-        >
-        <a routerLink="/signout" routerLinkActive="active" class="ui item"
-          >Sign Out</a
-        >
-      </ng-container>
-      <ng-container *ngIf="!(signedin$ | async)">
-        <a
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="ui item"
-          >Sign In</a
-        >
-        <a routerLink="/signup" routerLinkActive="active" class="ui item"
-          >Sign Up</a
-        >
-      </ng-container>
-    </div>
-  </div>
+          >
+          <a routerLink="/signout" routerLinkActive="active" class="ui item"
+            >Sign Out</a
+            >
+          }
+          @if (!(signedin$ | async)) {
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="ui item"
+              >Sign In</a
+              >
+              <a routerLink="/signup" routerLinkActive="active" class="ui item"
+                >Sign Up</a
+                >
+              }
+            </div>
+          </div>
 
-  <router-outlet></router-outlet>
-</div>
+          <router-outlet></router-outlet>
+        </div>

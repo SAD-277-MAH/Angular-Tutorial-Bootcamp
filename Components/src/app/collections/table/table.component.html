@@ -1,12 +1,18 @@
 <table class="ui table" [ngClass]="classNames">
-    <thead>
-        <tr>
-            <th *ngFor="let header of headers">{{ header.label }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let record of data">
-            <td *ngFor="let header of headers">{{ record[header.key] }}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      @for (header of headers; track header) {
+        <th>{{ header.label }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (record of data; track record) {
+      <tr>
+        @for (header of headers; track header) {
+          <td>{{ record[header.key] }}</td>
+        }
+      </tr>
+    }
+  </tbody>
 </table>

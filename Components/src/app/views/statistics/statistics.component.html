@@ -1,10 +1,12 @@
 <div class="ui statistics">
-    <div class="statistic" *ngFor="let stat of data">
-        <div class="value">
-            {{ stat.value }}
-        </div>
-        <div class="label">
-            {{ stat.label }}
-        </div>
+  @for (stat of data; track stat) {
+    <div class="statistic">
+      <div class="value">
+        {{ stat.value }}
+      </div>
+      <div class="label">
+        {{ stat.label }}
+      </div>
     </div>
+  }
 </div>

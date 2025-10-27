@@ -8,9 +8,10 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let page of data">
-      <td>
-        <a
+    @for (page of data; track page) {
+      <tr>
+        <td>
+          <a
           [href]="'https://en.wikipedia.org?curid=' + page.pageid"
           target="_blank"
           >{{ page.title }}</a
@@ -19,5 +20,6 @@
       <td>{{ page.wordcount }}</td>
       <td [innerHTML]="page.snippet"></td>
     </tr>
+}
   </tbody>
 </table>

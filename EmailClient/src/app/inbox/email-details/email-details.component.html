@@ -1,4 +1,4 @@
-<ng-container *ngIf="email$ | async; let email">
+@if (email$ | async; as email) {
   <div class="header">
     <div>
       <h3>{{ email.message.subject }}</h3>
@@ -15,4 +15,4 @@
   </div>
   <div class="ui divider"></div>
   <div [innerHTML]="email.message.html"></div>
-</ng-container>
+}

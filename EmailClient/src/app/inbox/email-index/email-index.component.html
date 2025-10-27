@@ -1,14 +1,16 @@
 <div class="ui celled list">
-  <div class="item" *ngFor="let email of emails?.messages">
-    <a [routerLink]="email.id" routerLinkActive="active">
-      <div class="content">
-        <div class="header trim">
-          {{ email.subject }}
+  @for (email of emails?.messages; track email) {
+    <div class="item">
+      <a [routerLink]="email.id" routerLinkActive="active">
+        <div class="content">
+          <div class="header trim">
+            {{ email.subject }}
+          </div>
+          <p class="trim">
+            {{ email.from }}
+          </p>
         </div>
-        <p class="trim">
-          {{ email.from }}
-        </p>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
+  }
 </div>

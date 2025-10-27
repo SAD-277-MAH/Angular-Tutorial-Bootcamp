@@ -40,10 +40,12 @@
         Generate!
       </button>
 
-      <div class="box" *ngIf="password">
-        <label>Your Password</label>
-        <input class="input" [value]="password" />
-      </div>
+      @if (password) {
+        <div class="box">
+          <label>Your Password</label>
+          <input class="input" [value]="password" />
+        </div>
+      }
     </div>
   </div>
 </div>

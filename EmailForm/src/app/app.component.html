@@ -13,22 +13,26 @@
         [ngClass]="{
           'is-danger': emailControl.invalid && emailControl.touched
         }"
-      />
-      <ng-container *ngIf="emailControl.invalid && emailControl.touched">
-        <div class="help is-danger" *ngIf="emailControl.errors!['required']">
-          Value is required
-        </div>
-        <div class="help is-danger" *ngIf="emailControl.errors!['pattern']">
-          Invalid format
-        </div>
-      </ng-container>
+        />
+      @if (emailControl.invalid && emailControl.touched) {
+        @if (emailControl.errors!['required']) {
+          <div class="help is-danger">
+            Value is required
+          </div>
+        }
+        @if (emailControl.errors!['pattern']) {
+          <div class="help is-danger">
+            Invalid format
+          </div>
+        }
+      }
     </div>
 
     <button
       type="submit"
       class="button is-primary"
       [disabled]="emailForm.invalid"
-    >
+      >
       Submit
     </button>
   </form>
